@@ -1,0 +1,40 @@
+.container {
+  @apply space-y-2;
+}
+
+.fullWidth {
+  @apply md:col-span-2;
+}
+
+.label {
+  @apply flex items-center gap-2 text-sm font-medium text-gray-700;
+}
+
+.icon {
+  @apply text-gray-400;
+}
+
+.inputWrapper {
+  @apply relative;
+}
+
+.inputField {
+  @apply w-full p-3 rounded-xl border border-gray-200 bg-white text-gray-800
+         outline-none transition-all;
+
+  &:focus {
+    @apply ring-2 ring-indigo-500 border-indigo-500;
+  }
+
+  &:disabled {
+    @apply bg-gray-100 text-gray-500 cursor-not-allowed;
+  }
+}
+
+.inputError {
+  @apply border-red-500 text-red-900 focus:ring-red-500 focus:border-red-500;
+}
+
+.errorMessage {
+  @apply text-xs text-red-500 font-medium ml-1 mt-1 block animate-in slide-in-from-top-1 fade-in;
+}

@@ -1,0 +1,94 @@
+.overlay {
+  @apply fixed inset-0 z-40 bg-black/50 backdrop-blur-sm md:hidden;
+}
+
+.sidebar {
+  @apply fixed inset-y-0 left-0 z-50 w-64 h-screen 
+         bg-neutral-900 text-white flex flex-col justify-between shadow-xl 
+         transition-transform duration-300 ease-in-out;
+
+  @apply md:static md:translate-x-0;
+}
+
+.open {
+  @apply translate-x-0;
+}
+
+.closed {
+  @apply -translate-x-full md:translate-x-0;
+}
+
+.headerContainer {
+  @apply flex items-center justify-between p-6 border-b border-neutral-800;
+}
+
+.brandGroup {
+  @apply flex items-center gap-3;
+}
+
+.logoWrapper {
+  @apply p-2 bg-indigo-600 rounded-2xl;
+}
+
+.logoIcon {
+  @apply w-6 h-6 text-white;
+}
+
+.titleGroup {
+  @apply flex flex-col;
+}
+
+.appTitle {
+  @apply text-lg font-bold;
+}
+
+.version {
+  @apply text-xs text-slate-400;
+}
+
+.closeBtn {
+  @apply md:hidden text-slate-400 hover:text-white transition-colors;
+}
+
+.nav {
+  @apply p-4 space-y-2;
+}
+
+.navItem {
+  @apply flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 
+         text-slate-400 hover:bg-neutral-800 hover:text-white;
+}
+
+.navItemActive {
+  @apply bg-indigo-600 text-white shadow-lg;
+}
+
+.navLabel {
+  @apply font-medium;
+}
+
+.footer {
+  @apply p-4 border-t border-slate-800;
+}
+
+.profileLink {
+  @apply flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 mb-2
+         text-slate-400 hover:bg-neutral-800 hover:text-white;
+}
+
+.profileActive {
+  @apply bg-slate-800 text-white;
+}
+
+.profileInfo {
+  @apply flex flex-col;
+}
+
+.profileName {
+  @apply text-xs text-slate-500 truncate max-w-[140px];
+}
+
+.logoutBtn {
+  @apply w-full flex items-center gap-3 px-4 py-3 
+         text-red-400 hover:bg-red-500/10 rounded-lg transition-colors;
+}

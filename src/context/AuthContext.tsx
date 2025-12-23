@@ -6,7 +6,7 @@ useEffect -> Evento que ocurre en momentos especificos (Como cuando inicias la a
 ReactNode -> Es un tipo de TS (Cualquier cosa que REACT pueda dibujar en pantalla)
 */
 import { createContext, useState, useContext, type ReactNode, useEffect } from 'react';
-import { LoadingSpinner } from '../components/LoadingSpinner';
+import { LoadingSpinner } from '../components/ui/Spinner/LoadingSpinner';
 import type { AuthResponse } from '../types/auth.types';
 /*
 Indica 3 niveles de acceso

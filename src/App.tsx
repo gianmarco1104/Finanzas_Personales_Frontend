@@ -1,10 +1,15 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
-import { LoginPage } from './pages/LoginPage';
-import { DashboardPage } from './pages/DashboardPage';
+import { LoginPage } from './pages/login/LoginPage';
+import { DashboardPage } from './pages/dashboard/DashboardPage';
+import { RecordsPage } from './pages/records/RecordsPage';
+import { RecordDetailPage } from './pages/records/RecordsDetailPage';
 import type { JSX } from 'react';
 import { ForbiddenPage } from './pages/ForbiddenPage';
 import { Toaster } from 'react-hot-toast';
+import { RecordsCreatePage } from './pages/records/RecordsCreatePage';
+import { RegisterPage } from './pages/login/Register/RegisterPage';
+import { ProfilePage } from './pages/myProfile/ProfilePage';
 
 //Guard 1 -> Este componente actua como un @PreAuthorize
 const PrivateRoute = ({ children, requiredRole }: { children: JSX.Element; requiredRole?: string }) => {
@@ -88,6 +93,16 @@ function App() {
               </PublicRoute>
             }
           />
+
+          <Route
+            path="/register"
+            element={
+              <PublicRoute>
+                <RegisterPage />
+              </PublicRoute>
+            }
+          />
+
           {/* Ruta Privada (Solo acceden los autenticados) */}
           <Route
             path="/dashboard"
@@ -97,6 +112,46 @@ function App() {
               </PrivateRoute>
             }
           />
+
+          {/* Ruta Privada (Solo acceden los autenticados) */}
+          <Route
+            path="/profile"
+            element={
+              <PrivateRoute requiredRole="Usuario">
+                <ProfilePage />
+              </PrivateRoute>
+            }
+          />
+          {/* Registro de Consumo (Lista) */}
+          <Route
+            path="/records"
+            element={
+              <PrivateRoute requiredRole="Usuario">
+                <RecordsPage />
+              </PrivateRoute>
+            }
+          />
+
+          {/* Detalle de Consumo (Dinámica) */}
+          <Route
+            path="/records/:id"
+            element={
+              <PrivateRoute requiredRole="Usuario">
+                <RecordDetailPage />
+              </PrivateRoute>
+            }
+          />
+
+          {/* Crear Nuevo Registro de Consumo */}
+          <Route
+            path="/records/create"
+            element={
+              <PrivateRoute requiredRole="Usuario">
+                <RecordsCreatePage />
+              </PrivateRoute>
+            }
+          />
+
           <Route
             path="/admin"
             element={
@@ -105,8 +160,7 @@ function App() {
               </PrivateRoute>
             }
           />
-
-          <Route path="*" element={<Navigate to="/dashboard" />} />
+          <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

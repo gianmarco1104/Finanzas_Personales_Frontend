@@ -22,11 +22,12 @@ export const ForbiddenPage = () => {
 
         {/* Mensaje personalizado */}
         <p className="text-gray-500 mb-8">
-          Hola <strong>{user?.fullname}</strong>. <br />
+          Hola <strong>{user?.fullName}</strong>. <br />
           Hemos detectado que tienes el rol de <span className="font-mono font-bold text-blue-600">{user?.role}</span>.
           <br />
           <br />
-          Tu panel de control aún no ha sido iniciado. Por favor, vuelve más tarde o ingresa con una cuenta de usuario estándar.
+          Tu panel de control aún no ha sido iniciado. Por favor, vuelve más tarde o ingresa con una cuenta de usuario
+          estándar.
         </p>
 
         {/* Botón de Acción */}

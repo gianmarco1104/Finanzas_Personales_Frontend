@@ -1,0 +1,117 @@
+.container {
+  @apply md:bg-white md:rounded-2xl md:shadow-sm md:border md:border-gray-100 overflow-hidden;
+}
+
+.mobileView {
+  @apply block md:hidden;
+}
+
+.mobileList {
+  @apply flex flex-col gap-4;
+}
+
+/* Skeleton Móvil */
+.mobileSkeletonCard {
+  @apply bg-white p-4 rounded-xl border border-gray-100 shadow-sm animate-pulse;
+
+  .rowBetween {
+    @apply flex justify-between mb-3;
+  }
+  .barMedium {
+    @apply h-4 bg-gray-200 rounded w-1/3;
+  }
+  .barShort {
+    @apply h-4 bg-gray-200 rounded w-1/4;
+  }
+  .barThin {
+    @apply h-3 bg-gray-200 rounded w-1/2 mb-2;
+  }
+  .barBlock {
+    @apply h-8 bg-gray-200 rounded w-full mt-4;
+  }
+}
+
+.mobileEmpty {
+  @apply p-8 text-center text-gray-400 text-sm bg-white rounded-2xl border border-gray-100 shadow-sm;
+}
+
+.desktopView {
+  @apply hidden md:block overflow-x-auto;
+}
+
+.table {
+  @apply w-full text-sm text-left text-gray-500;
+}
+
+.thead {
+  @apply text-xs text-gray-700 uppercase bg-gray-50 border-b border-gray-100;
+}
+
+.th {
+  @apply px-6 py-4 whitespace-nowrap;
+}
+
+.row {
+  @apply bg-white border-b border-gray-100 transition-colors hover:bg-gray-50;
+}
+
+.td {
+  @apply px-6 py-4 align-middle;
+}
+
+.tdCenter {
+  @apply px-6 py-4 align-middle text-center;
+}
+
+.descText {
+  @apply font-medium text-gray-900;
+}
+
+.emptyText {
+  @apply text-gray-400 italic;
+}
+
+.badgeCategory {
+  @apply bg-blue-50 text-indigo-700 text-xs font-medium px-2.5 py-1 rounded-full border border-blue-100 inline-block truncate max-w-[150px];
+}
+
+.badgeType {
+  @apply text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wide border;
+}
+.typeIncome {
+  @apply bg-green-50 text-green-700 border-green-100;
+}
+.typeExpense {
+  @apply bg-red-50 text-red-700 border-red-100;
+}
+
+.amount {
+  @apply font-bold whitespace-nowrap;
+}
+.amountIncome {
+  @apply text-green-600;
+}
+.amountExpense {
+  @apply text-red-600;
+}
+
+.actionsGroup {
+  @apply flex items-center justify-center gap-2;
+}
+
+.actionBtn {
+  @apply p-2 rounded-xl transition-colors;
+}
+.btnView {
+  @apply hover:bg-slate-100 text-slate-500;
+}
+.btnDelete {
+  @apply hover:bg-red-50 text-red-500;
+}
+
+.desktopSkeletonRow {
+  @apply bg-white border-b animate-pulse;
+}
+.skBar {
+  @apply bg-gray-200 rounded;
+}

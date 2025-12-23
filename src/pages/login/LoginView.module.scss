@@ -1,0 +1,76 @@
+.pageContainer {
+  @apply flex items-center justify-center min-h-screen bg-neutral-800;
+}
+
+.card {
+  @apply w-full max-w-md p-8 bg-white rounded-2xl shadow-2xl;
+}
+
+.header {
+  @apply flex flex-col items-center mb-8;
+}
+
+.logoWrapper {
+  @apply p-3 bg-indigo-50 rounded-2xl mb-3 flex items-center justify-center;
+}
+
+.logoIcon {
+  @apply w-8 h-8 text-indigo-600;
+}
+
+.title {
+  @apply text-2xl font-bold text-gray-800 tracking-tight;
+}
+
+.form {
+  @apply space-y-5;
+}
+
+.fieldGroup {
+  @apply flex flex-col gap-1.5;
+}
+
+.label {
+  @apply block text-sm font-medium text-gray-700 ml-1;
+}
+
+.inputWrapper {
+  @apply relative;
+}
+
+.inputIcon {
+  @apply absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400;
+}
+
+.inputField {
+  @apply w-full pl-10 pr-4 py-3 border border-gray-200 rounded-2xl 
+         focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 
+         outline-none transition-all text-gray-700 placeholder-gray-400;
+}
+
+.errorMessage {
+  @apply text-xs text-red-500 font-medium ml-1 animate-in fade-in slide-in-from-top-1;
+}
+
+.submitBtn {
+  @apply w-full py-3 bg-indigo-600 text-white font-bold rounded-2xl
+         hover:bg-indigo-700 transition-colors 
+         flex justify-center items-center gap-2 
+         disabled:opacity-70 disabled:cursor-not-allowed shadow-md shadow-indigo-200;
+}
+
+.spinner {
+  @apply animate-spin w-5 h-5;
+}
+
+.footer {
+  @apply mt-6 text-center;
+}
+
+.footerText {
+  @apply text-sm text-gray-500;
+}
+
+.registerLink {
+  @apply font-bold text-indigo-600 hover:text-indigo-700 transition-colors ml-2 cursor-pointer;
+}

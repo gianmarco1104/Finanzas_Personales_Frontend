@@ -1,0 +1,66 @@
+.mainWrapper {
+  @apply w-full max-w-none;
+}
+
+.header {
+  @apply mb-6;
+}
+
+.title {
+  @apply text-2xl font-bold text-gray-800;
+}
+
+.subtitle {
+  @apply text-sm text-gray-500;
+}
+
+.loadingContainer {
+  @apply flex flex-col items-center justify-center gap-4 h-full;
+}
+
+.spinner {
+  @apply animate-spin rounded-full h-10 w-10 border-4 border-indigo-100 border-t-indigo-600;
+}
+
+.loadingText {
+  @apply text-gray-500 font-medium text-sm animate-pulse;
+}
+
+.formContainer {
+  @apply bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8;
+}
+
+.formGrid {
+  @apply grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6;
+}
+
+.label {
+  @apply flex items-center gap-2 text-sm font-medium text-gray-700;
+}
+
+.inputBase {
+  @apply font-bold border opacity-100;
+}
+
+.expenseStyle {
+  @apply bg-red-50 border-red-100 text-red-700;
+}
+
+.incomeStyle {
+  @apply bg-green-50 border-green-100 text-green-700;
+}
+
+.footerButtons {
+  @apply mt-8 pt-6 border-t border-gray-100 flex flex-col-reverse md:flex-row justify-end gap-3;
+}
+
+.btnBack {
+  @apply flex items-center justify-center gap-2 px-6 py-3 rounded-2xl border 
+         border-gray-300 text-gray-700 font-medium hover:bg-gray-50 transition-colors;
+}
+
+.btnSave {
+  @apply flex items-center justify-center gap-2 px-6 py-3 rounded-2xl 
+         bg-indigo-600 text-white font-medium hover:bg-indigo-700 
+         shadow-md shadow-indigo-200 transition-colors;
+}

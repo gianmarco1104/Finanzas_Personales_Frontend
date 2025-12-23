@@ -1,0 +1,21 @@
+/* src/components/ui/LoadingSpinner/LoadingSpinner.module.scss */
+
+/* Contenedor: Ocupa toda la pantalla */
+.container {
+  @apply flex items-center justify-center min-h-screen;
+}
+
+/* Wrapper interno (Icono + Texto) */
+.content {
+  @apply flex flex-col items-center gap-2;
+}
+
+/* El Icono giratorio */
+.spinnerIcon {
+  @apply w-12 h-12 text-blue-600 animate-spin;
+}
+
+/* Texto informativo */
+.text {
+  @apply text-sm font-medium text-gray-500;
+}

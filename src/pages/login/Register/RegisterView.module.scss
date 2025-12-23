@@ -1,0 +1,74 @@
+.pageContainer {
+  @apply flex items-center justify-center min-h-screen bg-neutral-800 py-10 px-4;
+}
+
+.card {
+  @apply w-full max-w-2xl p-8 bg-white rounded-xl shadow-2xl;
+}
+
+.header {
+  @apply flex flex-col items-center mb-8;
+}
+
+.logoWrapper {
+  @apply p-3 bg-indigo-50 rounded-2xl mb-3 flex items-center justify-center;
+}
+
+.logoIcon {
+  @apply w-8 h-8 text-indigo-600;
+}
+
+.title {
+  @apply text-2xl font-bold text-gray-800 tracking-tight;
+}
+
+.subtitle {
+  @apply text-gray-500 text-sm mt-1;
+}
+
+.form {
+  @apply space-y-5;
+}
+
+.rowGrid {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-5;
+}
+
+.label {
+  @apply flex items-center gap-2 text-sm font-medium text-gray-700;
+}
+
+.errorText {
+  @apply text-xs text-red-500 font-medium ml-1 mt-1 block;
+}
+
+.countryGroup {
+  @apply grid grid-cols-[1fr_80px] gap-3 items-start;
+}
+
+.phoneGroup {
+  @apply grid grid-cols-[80px_1fr] gap-3 items-start;
+}
+
+.readOnlyInput {
+  @apply bg-gray-100 text-center font-bold text-gray-600 pointer-events-none focus:ring-0;
+}
+
+.submitBtn {
+  @apply w-full py-3 bg-indigo-600 text-white font-bold rounded-2xl
+         hover:bg-indigo-700 transition-colors mt-6
+         flex justify-center items-center gap-2 
+         disabled:opacity-70 disabled:cursor-not-allowed shadow-md shadow-indigo-200;
+}
+
+.spinner {
+  @apply animate-spin w-5 h-5;
+}
+
+.footer {
+  @apply mt-4 text-center;
+}
+
+.loginLink {
+  @apply font-bold text-indigo-600 hover:text-indigo-700 transition-colors ml-1 hover:underline cursor-pointer;
+}

@@ -1,0 +1,54 @@
+.mainWrapper {
+  @apply w-full max-w-3xl mx-auto py-6;
+}
+
+.header {
+  @apply mb-8;
+}
+
+.title {
+  @apply text-2xl font-bold text-gray-800;
+}
+
+.subtitle {
+  @apply text-gray-500 mt-1;
+}
+
+.formContainer {
+  @apply bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100;
+}
+
+.formGrid {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+}
+
+.fieldWrapper {
+  @apply space-y-2;
+}
+
+.label {
+  @apply flex items-center gap-2 text-sm font-medium text-gray-700;
+}
+
+.animatedField {
+  @apply space-y-2 animate-in fade-in slide-in-from-top-2 duration-200;
+}
+
+.errorText {
+  @apply text-xs text-red-500 font-medium ml-1 mt-1 block;
+}
+
+.footerButtons {
+  @apply mt-8 pt-6 border-t border-gray-100 flex justify-end gap-3;
+}
+
+.btnCancel {
+  @apply flex items-center gap-2 px-6 py-2.5 rounded-xl border border-gray-200 
+         text-gray-600 hover:bg-gray-50 font-medium transition-colors;
+}
+
+.btnSubmit {
+  @apply flex items-center gap-2 px-6 py-2.5 rounded-xl bg-indigo-600 
+         text-white font-medium hover:bg-indigo-700 transition-colors 
+         disabled:opacity-70 disabled:cursor-not-allowed shadow-lg shadow-indigo-200;
+}

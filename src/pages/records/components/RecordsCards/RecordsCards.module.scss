@@ -1,0 +1,65 @@
+.card {
+  @apply bg-white rounded-2xl shadow-sm border border-gray-100 p-4 flex flex-col gap-3 transition-all hover:shadow-md hover:border-gray-200;
+}
+
+.header {
+  @apply flex justify-between items-start gap-3;
+}
+
+.titleGroup {
+  @apply flex-1 min-w-0;
+}
+
+.description {
+  @apply font-bold text-gray-900 truncate text-sm md:text-base;
+}
+
+.date {
+  @apply text-xs text-gray-500 mt-0.5;
+}
+
+.amount {
+  @apply font-bold text-lg whitespace-nowrap;
+}
+
+.textIncome {
+  @apply text-green-600;
+}
+.textExpense {
+  @apply text-red-600;
+}
+
+.badgesRow {
+  @apply flex items-center gap-2 flex-wrap;
+}
+
+.typeBadge {
+  @apply text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wide border;
+}
+
+.badgeIncome {
+  @apply bg-green-50 text-green-700 border-green-100;
+}
+.badgeExpense {
+  @apply bg-red-50 text-red-700 border-red-100;
+}
+
+.categoryBadge {
+  @apply bg-blue-50 text-indigo-700 text-[10px] font-medium px-2 py-1 rounded-full border border-blue-100 truncate max-w-[150px];
+}
+
+.actionsRow {
+  @apply flex gap-2 mt-1;
+}
+
+.actionBtn {
+  @apply flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-xs font-medium transition-colors active:scale-95;
+}
+
+.btnView {
+  @apply bg-slate-50 text-slate-600 hover:bg-slate-100 border border-slate-100;
+}
+
+.btnDelete {
+  @apply bg-red-50 text-red-600 hover:bg-red-100 border border-red-50;
+}
