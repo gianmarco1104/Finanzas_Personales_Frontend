@@ -10,7 +10,6 @@ import { Toaster } from 'react-hot-toast';
 import { RecordsCreatePage } from './pages/records/RecordsCreatePage';
 import { RegisterPage } from './pages/login/Register/RegisterPage';
 import { ProfilePage } from './pages/myProfile/ProfilePage';
-
 //Guard 1 -> Este componente actua como un @PreAuthorize
 const PrivateRoute = ({ children, requiredRole }: { children: JSX.Element; requiredRole?: string }) => {
   const { isAuthenticated, user } = useAuth();

@@ -18,7 +18,7 @@ import toast from 'react-hot-toast';
 import { MainLayout } from '../../../../components/layout/MainLayout';
 import { FormInput } from '../../../../components/ui/InputData/InputData';
 import { CustomDropdown } from '../../../../components/ui/CustomDropdown/CustomDropdown';
-import { ConfirmModal } from '../../../../components/layout/Modal/ConfirmModal';
+import { ConfirmModal } from '../../../../components/layout/Modal/ConfirmModal/ConfirmModal';
 
 // Servicios y Tipos
 import { updateTransaction } from '../../../../services/records.service';

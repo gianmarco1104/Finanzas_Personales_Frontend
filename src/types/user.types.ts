@@ -18,3 +18,14 @@ export interface UpdateProfileRequest {
   countryId: number;
   genderId: number;
 }
+
+export interface ChangeEmailRequest {
+  currentEmail: string;
+  newEmail: string;
+  currentPassword: string;
+}
+
+export interface ChangePasswordRequest {
+  currentPassword: string;
+  newPassword: string;
+}

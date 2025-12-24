@@ -3,11 +3,12 @@
 }
 
 .header {
-  @apply flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 pb-6 border-b border-gray-100;
+  @apply flex flex-col items-center gap-4 mb-5 pb-5 border-b border-gray-100;
+  @apply md:flex-row md:items-center md:justify-start md:text-left;
 }
 
 .titleGroup {
-  @apply flex items-center gap-3;
+  @apply flex justify-center gap-3;
 }
 
 .avatar {
@@ -19,7 +20,7 @@
 }
 
 .roleBadge {
-  @apply px-3 py-1 bg-gray-100 text-gray-600 text-xs font-bold rounded-full uppercase tracking-wider;
+  @apply py-1 bg-gray-100 text-gray-600 text-xs font-bold rounded-full uppercase tracking-wider;
 }
 
 .card {

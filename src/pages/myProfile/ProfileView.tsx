@@ -6,10 +6,12 @@ import { FormInput } from '../../components/ui/InputData/InputData';
 import { CustomDropdown } from '../../components/ui/CustomDropdown/CustomDropdown';
 import { LoadingSpinner } from '../../components/ui/Spinner/LoadingSpinner';
 
-import type { UpdateProfileRequest, UserProfileResponse } from '../../types/user.types';
+import type { ChangePasswordRequest, UpdateProfileRequest, UserProfileResponse } from '../../types/user.types';
 import type { Catalog, Country } from '../../types/catalogs.types';
-
+import type { ChangeEmailRequest } from '../../types/user.types';
 import styles from './ProfileView.module.scss';
+import { ChangeEmailModal } from './ChangeEmailModal/ChangeEmail';
+import { ChangePasswordModal } from './ChangePasswordModal/ChangePassword';
 
 interface ProfileViewProps {
   user: UserProfileResponse | null;
@@ -18,7 +20,13 @@ interface ProfileViewProps {
   isLoading: boolean;
   onSave: () => void;
   onCancel: () => void;
+  isEmailModalOpen: boolean;
+  onCloseEmailModal: () => void;
+  onUpdateEmailSubmit: (data: ChangeEmailRequest) => Promise<void>;
   onChangeEmail: () => void;
+  isPasswordModalOpen: boolean;
+  onClosePasswordModal: () => void;
+  onUpdatePasswordSubmit: (data: ChangePasswordRequest) => Promise<void>;
   onChangePassword: () => void;
   countries: Country[];
   genders: Catalog[];
@@ -31,7 +39,13 @@ export const ProfileView = ({
   isLoading,
   onSave,
   onCancel,
+  isEmailModalOpen,
+  onCloseEmailModal,
+  onUpdateEmailSubmit,
   onChangeEmail,
+  isPasswordModalOpen,
+  onClosePasswordModal,
+  onUpdatePasswordSubmit,
   onChangePassword,
   countries,
   genders,
@@ -138,6 +152,19 @@ export const ProfileView = ({
               </div>
             </form>
           </div>
+
+          <ChangeEmailModal
+            isOpen={isEmailModalOpen}
+            onClose={onCloseEmailModal}
+            onSubmit={onUpdateEmailSubmit}
+            currentEmail={user?.email}
+          />
+
+          <ChangePasswordModal
+            isOpen={isPasswordModalOpen}
+            onClose={onClosePasswordModal}
+            onSubmit={onUpdatePasswordSubmit}
+          />
         </div>
       )}
     </MainLayout>

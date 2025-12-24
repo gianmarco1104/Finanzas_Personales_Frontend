@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 
 // Componentes y Servicios
 import { RecordsPageView } from './view/PageView/RecordsPageView';
-import { ConfirmModal } from '../../components/layout/Modal/ConfirmModal'; // Asegúrate que la ruta sea correcta
+import { ConfirmModal } from '../../components/layout/Modal/ConfirmModal/ConfirmModal'; // Asegúrate que la ruta sea correcta
 import { getTransactions, deleteTransaction } from '../../services/records.service';
 import { getCategories } from '../../services/catalogs.service';
 import type { Transaction, FilterState } from '../../types/records.types';

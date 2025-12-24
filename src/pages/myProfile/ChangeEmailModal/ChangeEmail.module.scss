@@ -1,0 +1,41 @@
+/* src/pages/myProfile/components/ChangeEmail.module.scss */
+.overlay {
+  @apply fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4 
+         animate-in fade-in duration-200;
+}
+
+.modalContainer {
+  @apply bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden
+  scale-100 animate-in zoom-in-95 duration-200;
+}
+
+.content {
+  @apply p-6;
+}
+
+.title {
+  @apply text-xl text-center font-bold text-gray-900 mb-5;
+}
+
+.inputContainer {
+  @apply flex flex-col gap-5;
+}
+
+.inputBase {
+  @apply bg-gray-50;
+}
+
+.containerButtons {
+  @apply mt-5 flex items-center justify-end gap-3;
+}
+
+.btnCancel {
+  @apply flex items-center gap-2 px-4 py-2.5 rounded-2xl text-red-600 font-medium
+  hover:bg-red-100 transition-colors disabled:opacity-50;
+}
+
+.btnSave {
+  @apply flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-indigo-600 
+    text-white font-medium hover:bg-indigo-700 transition-colors shadow-lg
+    shadow-indigo-200 disabled:opacity-70 disabled:cursor-not-allowed;
+}

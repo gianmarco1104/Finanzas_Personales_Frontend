@@ -1,20 +1,22 @@
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-
-// Componentes
 import { ProfileView } from './ProfileView';
-import { ConfirmModal } from '../../components/layout/Modal/ConfirmModal';
-
-// Servicios
-import { getUserProfile, updateUserProfile } from '../../services/user.service';
+import { ConfirmModal } from '../../components/layout/Modal/ConfirmModal/ConfirmModal';
+import { getUserProfile, requestPasswordChange, updateUserProfile } from '../../services/user.service';
 import { getCountries, getGenders } from '../../services/catalogs.service';
-
-// Tipos
-import type { UpdateProfileRequest, UserProfileResponse } from '../../types/user.types';
+import type {
+  ChangeEmailRequest,
+  ChangePasswordRequest,
+  UpdateProfileRequest,
+  UserProfileResponse,
+} from '../../types/user.types';
 import type { Catalog, Country } from '../../types/catalogs.types';
+import { requestEmailChange } from '../../services/user.service';
+import { LoadingSpinner } from '../../components/ui/Spinner/LoadingSpinner';
 
 export const ProfilePage = () => {
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
   // Estados de Datos
   const [user, setUser] = useState<UserProfileResponse | null>(null);
   const [countries, setCountries] = useState<Country[]>([]);
@@ -24,6 +26,8 @@ export const ProfilePage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const [isEmailModalOpen, setIsEmailModalOpen] = useState(false);
+  const [isPasswordModalOpen, setIsPasswordModalOpen] = useState(false);
   // Formulario
   const { register, control, getValues, reset } = useForm<UpdateProfileRequest>();
 
@@ -101,9 +105,25 @@ export const ProfilePage = () => {
     }
   };
 
-  // Stubs para botones especiales
-  const handleChangeEmail = () => toast('Función cambiar email pendiente');
-  const handleChangePassword = () => toast('Función cambiar contraseña pendiente');
+  useEffect(() => {
+    if (isLoggingOut) {
+      const timer = setTimeout(() => {
+        localStorage.clear();
+        sessionStorage.clear();
+        window.location.href = '/login';
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [isLoggingOut]);
+
+  const handleEmailUpdate = async (data: ChangeEmailRequest) => {
+    await requestEmailChange(data);
+    setIsLoggingOut(true);
+  };
+
+  const handleChangePassword = async (data: ChangePasswordRequest) => {
+    await requestPasswordChange(data);
+  };
 
   return (
     <>
@@ -116,8 +136,14 @@ export const ProfilePage = () => {
         genders={genders}
         onSave={onSaveClick} // Abre Modal
         onCancel={handleCancel} // Resetea Formulario
-        onChangeEmail={handleChangeEmail}
-        onChangePassword={handleChangePassword}
+        isEmailModalOpen={isEmailModalOpen}
+        onChangeEmail={() => setIsEmailModalOpen(true)}
+        onCloseEmailModal={() => setIsEmailModalOpen(false)}
+        onUpdateEmailSubmit={handleEmailUpdate}
+        isPasswordModalOpen={isPasswordModalOpen}
+        onChangePassword={() => setIsPasswordModalOpen(true)}
+        onClosePasswordModal={() => setIsPasswordModalOpen(false)}
+        onUpdatePasswordSubmit={handleChangePassword}
       />
 
       <ConfirmModal
@@ -130,6 +156,12 @@ export const ProfilePage = () => {
         cancelText="Cancelar"
         variant="primary"
       />
+
+      {isLoggingOut && (
+        <div className="fixed inset-0 z-[9999] bg-white/90 backdrop-blur-sm">
+          <LoadingSpinner text="Actualización exitosa. Cerrando sesión..." />
+        </div>
+      )}
     </>
   );
 };
