@@ -1,9 +1,9 @@
 .mainWrapper {
-  @apply w-full max-w-3xl mx-auto py-6;
+  @apply w-full max-w-none mx-auto py-6;
 }
 
 .header {
-  @apply mb-8;
+  @apply mb-8 text-center md:text-start;
 }
 
 .title {

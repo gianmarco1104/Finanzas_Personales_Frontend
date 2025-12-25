@@ -37,7 +37,7 @@ export const RecordsCreatePage = () => {
   const {
     register,
     handleSubmit,
-    control, // 👈 Necesario para los Dropdowns (CustomDropdown)
+    control,
     watch,
     setValue,
     formState: { errors, isSubmitting },

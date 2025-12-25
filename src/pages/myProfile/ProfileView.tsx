@@ -58,7 +58,7 @@ export const ProfileView = ({
   return (
     <MainLayout>
       {isLoading || !user ? (
-        <div className="flex h-full w-full min-h-[80vh] items-center justify-center">
+        <div className="h-[calc(100vh-100px)] w-full">
           <LoadingSpinner />
         </div>
       ) : (

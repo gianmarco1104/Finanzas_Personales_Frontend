@@ -24,6 +24,7 @@ import { ConfirmModal } from '../../../../components/layout/Modal/ConfirmModal/C
 import { updateTransaction } from '../../../../services/records.service';
 import type { TransactionDetail, UpdateTransactionRequest } from '../../../../types/records.types';
 import type { Catalog } from '../../../../types/catalogs.types';
+import { LoadingSpinner } from '../../../../components/ui/Spinner/LoadingSpinner';
 
 // Estilos
 import styles from './RecordsDetailView.module.scss';
@@ -61,15 +62,17 @@ export const RecordDetailView = ({ data, loading, categoriesList, paymentMethods
     return new Date(dateString).toISOString().split('T')[0];
   };
 
-  if (loading)
+  if (loading) {
     return (
       <MainLayout>
-        <div className={styles.loadingContainer}>
-          <div className={styles.spinner}></div>
-          <p className={styles.loadingText}>Cargando información...</p>
-        </div>
+        <main className={styles.mainWrapper}>
+          <div className="h-[calc(100vh-100px)] w-full">
+            <LoadingSpinner text="Cargando detalles..." />
+          </div>
+        </main>
       </MainLayout>
     );
+  }
 
   if (!data) return null;
 
