@@ -51,3 +51,7 @@
 .errorAlert {
   @apply p-4 bg-red-50 text-red-700 rounded-xl border border-red-100 flex items-center gap-3 animate-in fade-in;
 }
+
+.sectionKPIsTitle {
+  @apply text-lg font-bold text-gray-700 mb-3 text-center md:text-start;
+}

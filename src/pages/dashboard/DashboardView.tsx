@@ -70,36 +70,67 @@ export const DashboardView = ({ user, data, loading, error }: DashboardViewProps
         </div>
       ) : (
         <>
-          {/* 3. SECCIÓN DE KPIs */}
-          <section aria-label="Indicadores Financieros" className={styles.kpiSection}>
-            <KPICard
-              title="Ingresos Totales"
-              amount={data ? formatMoney(data.kpis.total_income) : ''}
-              icon={TrendingUp}
-              color="green"
-              loading={loading}
-            />
-            <KPICard
-              title="Gastos Totales"
-              amount={data ? formatMoney(data.kpis.total_expense) : ''}
-              icon={TrendingDown}
-              color="red"
-              loading={loading}
-            />
-            <KPICard
-              title="Balance Actual"
-              amount={data ? formatMoney(data.kpis.balance) : ''}
-              icon={Wallet}
-              color="indigo"
-              loading={loading}
-            />
-          </section>
+          <div>
+            <h3 className={styles.sectionKPIsTitle}>Resumen Histórico</h3>
 
-          {/* 4. SECCIÓN DE GRÁFICOS Y LISTAS */}
-          <section aria-label="Análisis de Gastos" className={styles.chartsSection}>
-            <ExpenseChart data={data ? data.chart_data : []} loading={loading} />
-            <CategoryList data={data ? data.chart_data : []} loading={loading} />
-          </section>
+            <section aria-label="Indicadores Financieros Totales" className={styles.kpiSection}>
+              <KPICard
+                title="Ingresos Totales"
+                amount={data ? formatMoney(data.kpis_global.total_income) : ''}
+                icon={TrendingUp}
+                color="green"
+                loading={loading}
+              />
+              <KPICard
+                title="Gastos Totales"
+                amount={data ? formatMoney(data.kpis_global.total_expense) : ''}
+                icon={TrendingDown}
+                color="red"
+                loading={loading}
+              />
+              <KPICard
+                title="Balance Total"
+                amount={data ? formatMoney(data.kpis_global.balance) : ''}
+                icon={Wallet}
+                color="indigo"
+                loading={loading}
+              />
+            </section>
+          </div>
+
+          <div>
+            <h3 className={styles.sectionKPIsTitle}>Resumen Mensual</h3>
+
+            <section aria-label="Indicadores Financieros del Mes" className={styles.kpiSection}>
+              <KPICard
+                title="Ingresos del Mes"
+                amount={data ? formatMoney(data.kpis.total_income) : ''}
+                icon={TrendingUp}
+                color="green"
+                loading={loading}
+              />
+              <KPICard
+                title="Gastos del Mes"
+                amount={data ? formatMoney(data.kpis.total_expense) : ''}
+                icon={TrendingDown}
+                color="red"
+                loading={loading}
+              />
+              <KPICard
+                title="Balance del Mes"
+                amount={data ? formatMoney(data.kpis.balance) : ''}
+                icon={Wallet}
+                color="indigo"
+                loading={loading}
+              />
+            </section>
+
+            {/* 4. SECCIÓN DE GRÁFICOS Y LISTAS */}
+            <section aria-label="Análisis de Gastos" className={styles.chartsSection}>
+              <ExpenseChart data={data ? data.chart_data : []} loading={loading} />
+              <CategoryList data={data ? data.chart_data : []} loading={loading} />
+            </section>
+          </div>
         </>
       )}
     </MainLayout>

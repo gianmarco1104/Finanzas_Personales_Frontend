@@ -11,7 +11,7 @@ interface CategoryListProps {
 export const CategoryList = ({ data, loading }: CategoryListProps) => {
   return (
     <section className={styles.container}>
-      <h3 className={styles.title}>Detalle por Categoría</h3>
+      <h3 className={styles.title}>Detalle por Categoría del Mes</h3>
 
       <ul className={styles.list} aria-busy={loading}>
         {loading

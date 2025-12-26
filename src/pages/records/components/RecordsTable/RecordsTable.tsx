@@ -1,4 +1,5 @@
-import { Eye, Trash2 } from 'lucide-react';
+import { useState } from 'react'; // 👈 Importamos useState
+import { Eye, Trash2, ChevronLeft, ChevronRight } from 'lucide-react'; // 👈 Iconos para paginación
 import type { Transaction } from '../../../../types/records.types';
 import { RecordsCard } from '../RecordsCards/RecordsCards';
 import { formatMoney, formatDate } from '../../../../utils/format.utils';
@@ -12,6 +13,21 @@ interface RecordsTableProps {
 }
 
 export const RecordsTable = ({ transactions, loading, onDelete, onView }: RecordsTableProps) => {
+  // 1. ESTADO PARA LA PÁGINA ACTUAL
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 7;
+
+  // 2. LÓGICA DE CORTE
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+
+  const currentTransactions = transactions.slice(indexOfFirstItem, indexOfLastItem);
+
+  const totalPages = Math.ceil(transactions.length / itemsPerPage);
+
+  const goToNextPage = () => setCurrentPage((prev) => Math.min(prev + 1, totalPages));
+  const goToPrevPage = () => setCurrentPage((prev) => Math.max(prev - 1, 1));
+
   return (
     <section className={styles.container}>
       {/* ==============================================
@@ -20,8 +36,10 @@ export const RecordsTable = ({ transactions, loading, onDelete, onView }: Record
       <div className={styles.mobileView}>
         {loading ? (
           <div className={styles.mobileList}>
+            {/* Skeletons... */}
             {[...Array(3)].map((_, i) => (
               <div key={i} className={styles.mobileSkeletonCard}>
+                {/* ... tu contenido skeleton ... */}
                 <div className={styles.rowBetween}>
                   <div className={styles.barMedium}></div>
                   <div className={styles.barShort}></div>
@@ -35,7 +53,8 @@ export const RecordsTable = ({ transactions, loading, onDelete, onView }: Record
           <div className={styles.mobileEmpty}>No hay registros para este periodo.</div>
         ) : (
           <div className={styles.mobileList}>
-            {transactions.map((t) => (
+            {/* 3. USAMOS currentTransactions EN LUGAR DE transactions */}
+            {currentTransactions.map((t) => (
               <RecordsCard key={t.id} transaction={t} onDelete={onDelete} onView={onView} />
             ))}
           </div>
@@ -59,9 +78,10 @@ export const RecordsTable = ({ transactions, loading, onDelete, onView }: Record
           </thead>
           <tbody>
             {loading ? (
-              // Skeleton Desktop
+              // Skeleton Desktop (Igual que tenías)
               [...Array(5)].map((_, i) => (
                 <tr key={i} className={styles.desktopSkeletonRow}>
+                  {/* ... tus celdas skeleton ... */}
                   <td className={styles.td}>
                     <div className={`${styles.skBar} h-4 w-24`}></div>
                   </td>
@@ -89,15 +109,13 @@ export const RecordsTable = ({ transactions, loading, onDelete, onView }: Record
                 </td>
               </tr>
             ) : (
-              transactions.map((t) => {
+              // 4. USAMOS currentTransactions AQUÍ TAMBIÉN
+              currentTransactions.map((t) => {
                 const isIncome = t.typeName === 'Ingreso';
-
                 return (
                   <tr key={t.id} className={styles.row}>
                     <td className={styles.td}>{formatDate(t.date)}</td>
                     <td className={`${styles.td} ${styles.descText}`}>{t.description}</td>
-
-                    {/* Columna Categoría */}
                     <td className={styles.td}>
                       {t.categoryName ? (
                         <span className={styles.badgeCategory}>{t.categoryName}</span>
@@ -105,15 +123,11 @@ export const RecordsTable = ({ transactions, loading, onDelete, onView }: Record
                         <span className={styles.emptyText}>--</span>
                       )}
                     </td>
-
-                    {/* Columna Tipo */}
                     <td className={styles.td}>
                       <span className={`${styles.badgeType} ${isIncome ? styles.typeIncome : styles.typeExpense}`}>
                         {t.typeName}
                       </span>
                     </td>
-
-                    {/* Columna Monto */}
                     <td
                       className={`${styles.td} ${styles.amount} ${
                         isIncome ? styles.amountIncome : styles.amountExpense
@@ -121,8 +135,6 @@ export const RecordsTable = ({ transactions, loading, onDelete, onView }: Record
                     >
                       {isIncome ? '+' : '-'} {formatMoney(t.amount)}
                     </td>
-
-                    {/* Columna Acciones */}
                     <td className={styles.tdCenter}>
                       <div className={styles.actionsGroup}>
                         <button onClick={() => onView(t.id)} className={`${styles.actionBtn} ${styles.btnView}`}>
@@ -140,6 +152,27 @@ export const RecordsTable = ({ transactions, loading, onDelete, onView }: Record
           </tbody>
         </table>
       </div>
+
+      {/* ==============================================
+          5. CONTROLES DE PAGINACIÓN
+         ============================================== */}
+      {!loading && totalPages > 1 && (
+        <div className={styles.paginationContainer}>
+          <span className={styles.pageInfo}>
+            Página {currentPage} de {totalPages}
+          </span>
+
+          <div className={styles.pageButtons}>
+            <button onClick={goToPrevPage} disabled={currentPage === 1} className={styles.pageBtn}>
+              <ChevronLeft size={20} />
+            </button>
+
+            <button onClick={goToNextPage} disabled={currentPage === totalPages} className={styles.pageBtn}>
+              <ChevronRight size={20} />
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

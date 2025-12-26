@@ -31,7 +31,7 @@ export const ExpenseChart = ({ data, loading }: ExpenseChartProps) => {
   return (
     <section aria-labelledby="chart-title" className={styles.container}>
       <h3 id="chart-title" className={styles.title}>
-        Distribución de Gastos
+        Distribución de Gastos del Mes
       </h3>
 
       {loading ? (
