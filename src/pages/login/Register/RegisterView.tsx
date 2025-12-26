@@ -136,10 +136,21 @@ export const RegisterView = ({
             <FormInput
               label="Teléfono"
               icon={Phone}
+              // type="tel" es mejor que "number" porque en celulares abre el teclado numérico
+              // pero no muestra las flechitas de subir/bajar número
               type="tel"
               placeholder="999 999 999"
-              {...register('phone', { required: 'El teléfono es requerido' })}
-              error={errors.phone?.message}
+              {...register('phone', {
+                required: 'El teléfono es requerido',
+                pattern: {
+                  value: /^[0-9]+$/,
+                  message: 'Solo se permiten números',
+                },
+              })}
+              onInput={(e) => {
+                const target = e.target as HTMLInputElement;
+                target.value = target.value.replace(/[^0-9]/g, '');
+              }}
             />
           </div>
 
