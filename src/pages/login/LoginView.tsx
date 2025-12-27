@@ -3,7 +3,7 @@ import type { UseFormRegister, FieldErrors } from 'react-hook-form';
 import type { LoginRequest } from '../../types/auth.types';
 import styles from './LoginView.module.scss';
 import { Link } from 'react-router-dom';
-import logo from '../../../../assets/logo.png';
+import logo from '../../assets/logo.png';
 
 interface LoginViewProps {
   register: UseFormRegister<LoginRequest>;
