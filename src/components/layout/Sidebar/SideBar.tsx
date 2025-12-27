@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { useAuth } from '../../../context/AuthContext';
 import { LayoutDashboard, User, LogOut, X, PiggyBank } from 'lucide-react';
 import styles from './SideBar.module.scss';
-import logoblanco from '../../../assets/logo.png';
+import logoblanco from '../../../assets/logoblanco.png';
 interface SidebarProps {
   isOpen: boolean;
   onClose: () => void;
