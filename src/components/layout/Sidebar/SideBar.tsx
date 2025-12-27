@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../../../context/AuthContext';
-import { LayoutDashboard, User, LogOut, Wallet, X, PiggyBank } from 'lucide-react';
+import { LayoutDashboard, User, LogOut, X, PiggyBank } from 'lucide-react';
 import styles from './SideBar.module.scss';
 
 interface SidebarProps {
@@ -29,7 +29,7 @@ export const SideBar = ({ isOpen, onClose }: SidebarProps) => {
           <div className={styles.headerContainer}>
             <div className={styles.brandGroup}>
               <div className={styles.logoWrapper}>
-                <Wallet className={styles.logoIcon} />
+                <img src="/src/assets/logoblanco.png" alt="Logo Finanzas" className={styles.logoIcon} />
               </div>
               <div className={styles.titleGroup}>
                 <h1 className={styles.appTitle}>Finanzas App</h1>

@@ -28,10 +28,11 @@
 
 .logoWrapper {
   @apply p-2 bg-indigo-600 rounded-2xl;
+  @apply flex items-center justify-center;
 }
 
 .logoIcon {
-  @apply w-6 h-6 text-white;
+  @apply w-6 h-6 object-contain;
 }
 
 .titleGroup {
