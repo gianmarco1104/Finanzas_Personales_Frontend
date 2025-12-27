@@ -1,10 +1,8 @@
 import { useEffect, useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
-
-// Componentes y Servicios
 import { RecordsPageView } from './view/PageView/RecordsPageView';
-import { ConfirmModal } from '../../components/layout/Modal/ConfirmModal/ConfirmModal'; // Asegúrate que la ruta sea correcta
+import { ConfirmModal } from '../../components/layout/Modal/ConfirmModal/ConfirmModal';
 import { getTransactions, deleteTransaction } from '../../services/records.service';
 import { getCategories } from '../../services/catalogs.service';
 import type { Transaction, FilterState } from '../../types/records.types';
@@ -29,7 +27,7 @@ export const RecordsPage = () => {
     categoryId: '',
   });
 
-  // Generador de fechas inteligente (Desde Dic 2025)
+  // Generador de fechas inteligente
   const dateOptions = useMemo(() => {
     const startYear = 2025;
     const startMonth = 12;
@@ -107,13 +105,10 @@ export const RecordsPage = () => {
     if (!selectedIdToDelete) return;
 
     setIsDeleting(true);
-    // Iniciamos un toast de carga que luego actualizaremos
     const toastId = toast.loading('Eliminando registro...');
 
     try {
       await deleteTransaction(selectedIdToDelete);
-
-      // Actualizamos el estado local quitando el item eliminado
       setTransactions((prev) => prev.filter((t) => t.id !== selectedIdToDelete));
 
       // Toast de éxito
@@ -141,8 +136,8 @@ export const RecordsPage = () => {
         filters={filters}
         dateOptions={dateOptions}
         onFilterChange={handleFilterChange}
-        onDelete={handleOpenDeleteModal} // Pasamos la función que abre el modal
-        onView={handleViewDetail} // Pasamos la función de navegación
+        onDelete={handleOpenDeleteModal}
+        onView={handleViewDetail}
       />
 
       {/* MODAL DE CONFIRMACIÓN */}

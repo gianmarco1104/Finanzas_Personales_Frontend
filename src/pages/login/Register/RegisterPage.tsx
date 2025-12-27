@@ -2,11 +2,7 @@ import { useEffect, useState } from 'react';
 import { useForm, type SubmitHandler, type SubmitErrorHandler } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
-
-// Componente Visual
 import { RegisterView } from './RegisterView';
-
-// Servicios y Tipos
 import { registerUser } from '../../../services/register.service';
 import { getCountries, getGenders } from '../../../services/catalogs.service';
 import type { RegisterRequest } from '../../../types/register.types';
@@ -15,7 +11,6 @@ import type { Country, Catalog } from '../../../types/catalogs.types';
 export const RegisterPage = () => {
   const navigate = useNavigate();
 
-  // Estados de carga
   const [countries, setCountries] = useState<Country[]>([]);
   const [genders, setGenders] = useState<Catalog[]>([]);
   const [isLoadingCatalogs, setIsLoadingCatalogs] = useState(true);

@@ -1,17 +1,11 @@
 import { ArrowLeft, Calendar, FileText, CreditCard, Tag, Save, Wallet, DollarSign, Repeat } from 'lucide-react';
 import { Controller, type Control, type FieldErrors, type UseFormRegister, type UseFormWatch } from 'react-hook-form';
-
-// Componentes UI
 import { MainLayout } from '../../../../components/layout/MainLayout';
 import { FormInput } from '../../../../components/ui/InputData/InputData';
 import { CustomDropdown } from '../../../../components/ui/CustomDropdown/CustomDropdown';
 import { LoadingSpinner } from '../../../../components/ui/Spinner/LoadingSpinner';
-
-// Tipos
 import type { Catalog } from '../../../../types/catalogs.types';
 import type { TransactionFormValues } from '../../RecordsCreatePage';
-
-// Estilos
 import styles from './RecordsCreateView.module.scss';
 
 interface RecordsCreateViewProps {

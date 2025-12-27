@@ -1,8 +1,9 @@
 import { Lock, Mail, Loader2, ArrowRight } from 'lucide-react';
 import type { UseFormRegister, FieldErrors } from 'react-hook-form';
-import type { LoginRequest } from '../../types/auth.types'; // Ajusta la ruta según tu estructura
+import type { LoginRequest } from '../../types/auth.types';
 import styles from './LoginView.module.scss';
 import { Link } from 'react-router-dom';
+import logo from '../../../../assets/logo.png';
 
 interface LoginViewProps {
   register: UseFormRegister<LoginRequest>;
@@ -18,7 +19,7 @@ export const LoginView = ({ register, errors, isLoading, onSubmit }: LoginViewPr
         {/* 1. Encabezado */}
         <header className={styles.header}>
           <div className={styles.logoWrapper}>
-            <img src="/src/assets/logo.png" alt="Logo Finanzas" className={styles.logoIcon} />
+            <img src={logo} alt="Logo Finanzas" className={styles.logoIcon} />
           </div>
           <h1 className={styles.title}>Finanzas App</h1>
         </header>

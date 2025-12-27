@@ -1,4 +1,4 @@
-import { Construction, LogOut } from 'lucide-react'; // 👈 Cambiamos el icono a uno de construcción
+import { Construction, LogOut } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 export const ForbiddenPage = () => {

@@ -1,16 +1,10 @@
 import { User, Mail, Phone, Lock, Wallet, ArrowRight, Loader2, Globe, Hash, Flag } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import type { UseFormRegister, FieldErrors, UseFormSetValue, UseFormWatch } from 'react-hook-form';
-
-// Componentes UI
 import { FormInput } from '../../../components/ui/InputData/InputData';
 import { CustomDropdown } from '../../../components/ui/CustomDropdown/CustomDropdown';
-
-// Tipos
 import type { RegisterRequest } from '../../../types/register.types';
 import type { Country, Catalog } from '../../../types/catalogs.types';
-
-// Estilos
 import styles from './RegisterView.module.scss';
 
 interface RegisterViewProps {
@@ -136,8 +130,6 @@ export const RegisterView = ({
             <FormInput
               label="Teléfono"
               icon={Phone}
-              // type="tel" es mejor que "number" porque en celulares abre el teclado numérico
-              // pero no muestra las flechitas de subir/bajar número
               type="tel"
               placeholder="999 999 999"
               {...register('phone', {

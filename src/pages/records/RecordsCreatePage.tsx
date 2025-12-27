@@ -2,25 +2,20 @@ import { useEffect, useState } from 'react';
 import { useForm, type SubmitHandler } from 'react-hook-form';
 import { useNavigate, useLocation } from 'react-router-dom';
 import toast from 'react-hot-toast';
-
-// Componente Visual
 import { RecordsCreateView } from './view/CreateView/RecordsCreateView';
-
-// Servicios y Tipos
 import { createTransaction } from '../../services/records.service';
 import { getCategories, getPaymentMethods } from '../../services/catalogs.service';
 import type { CreateTransactionRequest } from '../../types/records.types';
 import type { Catalog } from '../../types/catalogs.types';
 
-// Definimos la estructura del formulario (ligeramente diferente al Request final)
 export interface TransactionFormValues {
-  amount: string; // Inputs numéricos suelen manejarse como string en forms
+  amount: string;
   description: string;
   transactionTypeId: number;
-  isRecurring: number; // Tu dropdown usa 1 o 0
+  isRecurring: number;
   notes: string;
   dateProcess: string;
-  categoryId: number | ''; // Puede estar vacío
+  categoryId: number | '';
   paymentMethodId: number | '';
 }
 
@@ -50,7 +45,6 @@ export const RecordsCreatePage = () => {
       notes: '',
       categoryId: '',
       paymentMethodId: '',
-      // Tu lógica de fecha por defecto:
       dateProcess: new Date().toLocaleDateString('en-CA', { timeZone: 'America/Lima' }),
     },
   });

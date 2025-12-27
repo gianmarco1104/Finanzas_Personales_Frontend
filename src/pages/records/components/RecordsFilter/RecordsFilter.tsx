@@ -13,7 +13,6 @@ interface RecordsFilterProps {
 }
 
 export const RecordsFilter = ({ categories, filters, dateOptions, onFilterChange }: RecordsFilterProps) => {
-  // 1. OPTIMIZACIÓN: Preparamos las opciones de Fecha
   const formattedDateOptions = useMemo(() => {
     return dateOptions.map((opt) => ({
       value: `${opt.month}-${opt.year}`,
@@ -21,7 +20,6 @@ export const RecordsFilter = ({ categories, filters, dateOptions, onFilterChange
     }));
   }, [dateOptions]);
 
-  // 2. OPTIMIZACIÓN: Preparamos las opciones de Categoría
   const formattedCategories = useMemo(() => {
     return [
       { value: '', label: 'Todas las Categorías' },
@@ -29,17 +27,14 @@ export const RecordsFilter = ({ categories, filters, dateOptions, onFilterChange
     ];
   }, [categories]);
 
-  // 3. HANDLER: Lógica para parsear la fecha seleccionada
   const handleDateChange = (val: string) => {
     const [month, year] = val.split('-');
-    // Actualizamos ambos valores en el estado padre
     onFilterChange('month', parseInt(month));
     onFilterChange('year', parseInt(year));
   };
 
   return (
     <section aria-label="Filtros de búsqueda" className={styles.filterSection}>
-      {/* ETIQUETA: Filtrar por */}
       <div className={styles.labelGroup}>
         <Filter size={18} aria-hidden="true" />
         <span>Filtrar por:</span>
@@ -50,7 +45,7 @@ export const RecordsFilter = ({ categories, filters, dateOptions, onFilterChange
         value={`${filters.month}-${filters.year}`}
         onChange={handleDateChange}
         options={formattedDateOptions}
-        className={styles.dropdown} // Le pasamos la clase para controlar el ancho
+        className={styles.dropdown}
       />
 
       {/* SELECT: Categoría */}

@@ -25,7 +25,6 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
           <span className={styles.mobileTitle}>Finanzas App</span>
         </header>
 
-        {/* CONTENIDO PRINCIPAL (Aquí se renderizan tus páginas) */}
         <main className={styles.mainContent}>{children}</main>
       </div>
     </div>

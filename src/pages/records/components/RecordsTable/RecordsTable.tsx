@@ -1,5 +1,5 @@
-import { useState } from 'react'; // 👈 Importamos useState
-import { Eye, Trash2, ChevronLeft, ChevronRight } from 'lucide-react'; // 👈 Iconos para paginación
+import { useState } from 'react';
+import { Eye, Trash2, ChevronLeft, ChevronRight } from 'lucide-react';
 import type { Transaction } from '../../../../types/records.types';
 import { RecordsCard } from '../RecordsCards/RecordsCards';
 import { formatMoney, formatDate } from '../../../../utils/format.utils';
@@ -39,7 +39,6 @@ export const RecordsTable = ({ transactions, loading, onDelete, onView }: Record
             {/* Skeletons... */}
             {[...Array(3)].map((_, i) => (
               <div key={i} className={styles.mobileSkeletonCard}>
-                {/* ... tu contenido skeleton ... */}
                 <div className={styles.rowBetween}>
                   <div className={styles.barMedium}></div>
                   <div className={styles.barShort}></div>
@@ -81,7 +80,6 @@ export const RecordsTable = ({ transactions, loading, onDelete, onView }: Record
               // Skeleton Desktop (Igual que tenías)
               [...Array(5)].map((_, i) => (
                 <tr key={i} className={styles.desktopSkeletonRow}>
-                  {/* ... tus celdas skeleton ... */}
                   <td className={styles.td}>
                     <div className={`${styles.skBar} h-4 w-24`}></div>
                   </td>
@@ -109,7 +107,6 @@ export const RecordsTable = ({ transactions, loading, onDelete, onView }: Record
                 </td>
               </tr>
             ) : (
-              // 4. USAMOS currentTransactions AQUÍ TAMBIÉN
               currentTransactions.map((t) => {
                 const isIncome = t.typeName === 'Ingreso';
                 return (

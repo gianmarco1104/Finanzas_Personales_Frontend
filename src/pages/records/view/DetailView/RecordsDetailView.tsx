@@ -13,20 +13,14 @@ import {
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
-
-// Componentes
 import { MainLayout } from '../../../../components/layout/MainLayout';
 import { FormInput } from '../../../../components/ui/InputData/InputData';
 import { CustomDropdown } from '../../../../components/ui/CustomDropdown/CustomDropdown';
 import { ConfirmModal } from '../../../../components/layout/Modal/ConfirmModal/ConfirmModal';
-
-// Servicios y Tipos
 import { updateTransaction } from '../../../../services/records.service';
 import type { TransactionDetail, UpdateTransactionRequest } from '../../../../types/records.types';
 import type { Catalog } from '../../../../types/catalogs.types';
 import { LoadingSpinner } from '../../../../components/ui/Spinner/LoadingSpinner';
-
-// Estilos
 import styles from './RecordsDetailView.module.scss';
 
 interface RecordDetailViewProps {
