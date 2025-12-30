@@ -24,40 +24,38 @@ export const SideBar = ({ isOpen, onClose }: SidebarProps) => {
       {/* SIDEBAR */}
       <aside className={`${styles.sidebar} ${isOpen ? styles.open : styles.closed}`}>
         {/* PARTE SUPERIOR */}
-        <div>
-          {/* Header: Logo y Título */}
-          <div className={styles.headerContainer}>
-            <div className={styles.brandGroup}>
-              <div className={styles.logoWrapper}>
-                <img src={logoblanco} alt="Logo Finanzas" className={styles.logoIcon} />
-              </div>
-              <div className={styles.titleGroup}>
-                <h1 className={styles.appTitle}>Finanzas App</h1>
-                <span className={styles.version}>v1.0.0</span>
-              </div>
+        {/* Header: Logo y Título */}
+        <div className={styles.headerContainer}>
+          <div className={styles.brandGroup}>
+            <div className={styles.logoWrapper}>
+              <img src={logoblanco} alt="Logo Finanzas" className={styles.logoIcon} />
             </div>
-
-            {/* Botón Cerrar (Móvil) */}
-            <button onClick={onClose} className={styles.closeBtn} aria-label="Cerrar menú">
-              <X size={24} />
-            </button>
+            <div className={styles.titleGroup}>
+              <h1 className={styles.appTitle}>Finanzas App</h1>
+              <span className={styles.version}>v1.0.0</span>
+            </div>
           </div>
 
-          {/* Navegación */}
-          <nav className={styles.nav}>
-            {menuItems.map((item) => (
-              <NavLink
-                key={item.path}
-                to={item.path}
-                onClick={onClose}
-                className={({ isActive }) => `${styles.navItem} ${isActive ? styles.navItemActive : ''}`}
-              >
-                <item.icon size={20} />
-                <span className={styles.navLabel}>{item.label}</span>
-              </NavLink>
-            ))}
-          </nav>
+          {/* Botón Cerrar (Móvil) */}
+          <button onClick={onClose} className={styles.closeBtn} aria-label="Cerrar menú">
+            <X size={24} />
+          </button>
         </div>
+
+        {/* Navegación */}
+        <nav className={styles.nav}>
+          {menuItems.map((item) => (
+            <NavLink
+              key={item.path}
+              to={item.path}
+              onClick={onClose}
+              className={({ isActive }) => `${styles.navItem} ${isActive ? styles.navItemActive : ''}`}
+            >
+              <item.icon size={20} />
+              <span className={styles.navLabel}>{item.label}</span>
+            </NavLink>
+          ))}
+        </nav>
 
         {/* PARTE INFERIOR: Perfil y Salir */}
         <div className={styles.footer}>
